@@ -1,48 +1,49 @@
-<!DOCTYPE html>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="en">
-<head>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<h3>Login</h3>
+<table>
+    <tr>
+        <td>User Name:</td>
+        <td><input type="text" id="username" name="username" style="width: 200px"></td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><input type="password" id="password" style="width: 200px"></td>
+    </tr>
+    <tr><td></td>
+        <td><input type="button" onclick="fire_ajax_submit()" value="Login"></td>
+    </tr>
+</table>
+<script>
+    function fire_ajax_submit() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+                var ara = {"username": username, "password": password}
 
-    <!-- Access the bootstrap Css like this,
-        Spring boot will handle the resource mapping automcatically -->
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-    <!--
-	<spring:url value="/css/main.css" var="springCss" />
-	<link href="${springCss}" rel="stylesheet" />
-	 -->
-    <c:url value="/css/main.css" var="jstlCss" />
-    <link href="${jstlCss}" rel="stylesheet" />
 
-</head>
-<body>
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/login",
+            data: JSON.stringify(ara),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
 
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Spring Boot</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+                alert(data)
 
-<div class="container">
 
-    <div class="starter-template">
-        <h1>Spring Boot Web JSP Example</h1>
-        <h2>Message: ${message}</h2>
-    </div>
+            },
+            error: function (e) {
 
-</div>
+                alert(e)
 
-<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            }
+        });
 
-</body>
-
-</html>
+    }
+</script>

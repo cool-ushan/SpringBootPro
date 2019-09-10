@@ -12,6 +12,7 @@ public class LoginServiceImpl implements LoginService {
     LoginRepositary loginRepositary;
     @Override
     public String checkLogin(LoginDTO loginData) {
+
         if(!loginData.getUsername().isEmpty()||!loginData.getPassword().isEmpty()){
             LoginDTO serched =  loginRepositary.loginCheck(loginData.getUsername(),loginData.getPassword());
                 if(serched!=null){

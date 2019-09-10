@@ -16,23 +16,20 @@ import java.util.Map;
 
 
 public class LoginController {
-    @Value("${welcome.message:test}")
-    private String message = "Hello World";
     @RequestMapping("/")
-    public String welcome(Map<String, Object> model) {
-        model.put("message", this.message);
+    public String welcome( ) {
         return "login";
     }
 
-//    @Autowired
-//    LoginService loginService;
-//
-//
-//    @GetMapping("/login")
-//    public String checkLogin(@RequestBody LoginDTO loginData) {
-//        return loginService.checkLogin(loginData);
-//
-//    }
+    @Autowired
+    LoginService loginService;
+
+
+    @GetMapping("/login")
+    public String checkLogin(@RequestBody LoginDTO loginData) {
+        return loginService.checkLogin(loginData);
+
+    }
 
 
 }
