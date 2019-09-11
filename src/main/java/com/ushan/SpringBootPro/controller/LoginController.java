@@ -1,35 +1,30 @@
 package com.ushan.SpringBootPro.controller;
 
-import com.ushan.SpringBootPro.controller.domain.LoginDTO;
-import com.ushan.SpringBootPro.controller.services.LoginService;
+import com.ushan.SpringBootPro.domain.LoginDTO;
+import com.ushan.SpringBootPro.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@Controller
-
+@RestController
 
 public class LoginController {
-    @RequestMapping("/")
-    public String welcome( ) {
-        return "login";
-    }
 
     @Autowired
     LoginService loginService;
 
-
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String checkLogin(@RequestBody LoginDTO loginData) {
-        return loginService.checkLogin(loginData);
+        System.out.println(loginData.getUsername());
+       String a = loginService.checkLogin(loginData);
+        System.out.println(a+"-------------");
+
+        return a;
+
 
     }
+
 
 
 }

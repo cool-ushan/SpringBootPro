@@ -1,8 +1,8 @@
-package com.ushan.SpringBootPro.controller.services.impl;
+package com.ushan.SpringBootPro.services.impl;
 
-import com.ushan.SpringBootPro.controller.domain.LoginDTO;
-import com.ushan.SpringBootPro.controller.repositary.LoginRepositary;
-import com.ushan.SpringBootPro.controller.services.LoginService;
+import com.ushan.SpringBootPro.domain.LoginDTO;
+import com.ushan.SpringBootPro.repositary.LoginRepositary;
+import com.ushan.SpringBootPro.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

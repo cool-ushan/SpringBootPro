@@ -1,4 +1,4 @@
-package com.ushan.SpringBootPro.controller.domain;
+package com.ushan.SpringBootPro.domain;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
-package com.ushan.SpringBootPro.controller.repositary;
+package com.ushan.SpringBootPro.repositary;
 
-import com.ushan.SpringBootPro.controller.domain.LoginDTO;
+import com.ushan.SpringBootPro.domain.LoginDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
